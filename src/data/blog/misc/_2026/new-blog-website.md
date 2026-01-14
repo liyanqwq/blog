@@ -4,7 +4,7 @@ author: Li Yan
 pubDatetime: 2026-01-15T20:00:00Z
 slug: example-draft-post
 featured: true
-draft: true
+draft: false
 tags:
   - Misc
 description:

@@ -11,7 +11,8 @@ root {
 html[data-theme="light"] {
   --background: #fdfdfd;
   --foreground: #282728;
-  --accent: #006cac;
+  --accent: #181718;
+  /* --accent: #005cac; */
   --muted: #e6e6e6;
   --border: #ece9e9;
 }
@@ -19,9 +20,9 @@ html[data-theme="light"] {
 html[data-theme="dark"] {
   --background: #212737;
   --foreground: #eaedf3;
-  --accent: #ff6b01;
+  --accent: #f8faff;
   --muted: #343f60;
-  --border: #ab4b08;
+  --border: #303646;
 }
 
 @theme inline {
