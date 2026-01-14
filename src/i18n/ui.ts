@@ -28,6 +28,8 @@ export const ui = {
         "Cybersec": "攻防手記",
         "Diary": "香江夜話",
         "All the articles I've posted.": "所有我發布的文章。",
+        "Previous Post": "上一篇文章",
+        "Next Post": "下一篇文章",
     },
     "en": {
         "Home": "Home",
@@ -58,5 +60,7 @@ export const ui = {
         "Cybersec": "CyberSec",
         "Diary": "Diary",
         "All the articles I've posted.": "All the articles I've posted.",
+        "Previous Post": "Previous Post",
+        "Next Post": "Next Post",
     }
 }

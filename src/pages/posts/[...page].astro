@@ -23,7 +23,7 @@ const { page } = Astro.props;
   <Header />
   <Main pageTitle={getTranslations(locale, "Posts")}>
     <ul>
-      {page.data.map(data => <Card {...data} />)}
+      {page.data.map(data => <Card {...data} isTag={false} />)}
     </ul>
   </Main>
 

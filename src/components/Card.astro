@@ -3,14 +3,16 @@ import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@/utils/slugify";
 import { getPath } from "@/utils/getPath";
 import Datetime from "./Datetime.astro";
-
+import { getTranslations } from "@/i18n/utils";
+const locale = Astro.currentLocale;
 type Props = {
   variant?: "h2" | "h3";
+  isTag: boolean;
 } & CollectionEntry<"blog">;
 
-const { variant: Heading = "h2", id, data, filePath } = Astro.props;
+const { variant: Heading = "h2", id, data, filePath, isTag = false } = Astro.props;
 
-const { title, description, pubDatetime, modDatetime, timezone } = data;
+const { title, description, pubDatetime, modDatetime, timezone, tags } = data;
 ---
 
 <li class="my-6">
@@ -28,6 +30,10 @@ const { title, description, pubDatetime, modDatetime, timezone } = data;
       {title}
     </Heading>
   </a>
-  <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} timezone={timezone} class:list={"mb-2 mt-1"} />
+  <div class="mb-2 mt-1 flex items-center gap-x-2">
+    {false && tags && tags.length > 0 && <div><a href={`/tags/${tags[0].toLowerCase()}`} class="text-sm text-accent/85 hover:text-accent">{getTranslations(locale, tags[0])}</a><span class="ml-2 text-sm text-accent/20">·</span></div>}
+    <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} timezone={timezone} />
+    {!isTag && tags && tags.length > 0 && <div><span class="mr-2 text-sm text-accent/20">·</span><a href={`/tags/${tags[0].toLowerCase()}`} class="text-sm text-accent/85 hover:text-accent">{getTranslations(locale, tags[0])}</a></div>}
+  </div>
   <p>{description}</p>
 </li>
