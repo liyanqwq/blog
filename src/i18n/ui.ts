@@ -18,7 +18,7 @@ export const ui = {
         "Recent Posts": "近期文章",
         "Posts (page {number})": "文章 (第 {number} 頁)",
         "Tags (page {number})": "標籤 (第 {number} 頁)",
-        "All the tags used in posts.": "",
+        "All the tags used in posts.": "所有在文章中使用的標籤。",
         "Tag": "標籤",
         "All the articles with the tag {tag}.": "所有使用標籤 {tag} 的文章。",
         "Share this post on:": "分享文章至：",
@@ -27,6 +27,7 @@ export const ui = {
         "Misc": "煮茶隨筆",
         "Cybersec": "攻防手記",
         "Diary": "香江夜話",
+        "All the articles I've posted.": "所有我發布的文章。",
     },
     "en": {
         "Home": "Home",
@@ -56,5 +57,6 @@ export const ui = {
         "Misc": "Misc",
         "Cybersec": "CyberSec",
         "Diary": "Diary",
+        "All the articles I've posted.": "All the articles I've posted.",
     }
 }

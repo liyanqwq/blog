@@ -16,7 +16,7 @@ let tags = getUniqueTags(posts);
 
 <Layout title={`${getTranslations(locale, "Tags")} | ${SITE.title}`}>
   <Header />
-  <Main pageTitle={getTranslations(locale, "Tags")} pageDesc={getTranslations(locale, "All the tags used in posts.")}>
+  <Main pageTitle={getTranslations(locale, "Tags")}>
     <ul class="flex flex-wrap gap-6">
       {tags.map(({ tag, tagName }) => <Tag {tag} {tagName} />)}
     </ul>

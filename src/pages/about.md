@@ -23,11 +23,11 @@ title: "關於"
 
 在這裏，我將不定期更新以下內容：
 
-* [**【攻防手記】**](/tags/cybersec)
+* <a href="/tags/cybersec" class="no-underline font-bold">【攻防手記】</a>
 技術筆記、漏洞分析與 CTF 賽題復盤。
-* [**【香江夜話】**](/tags/diary)
+* <a href="/tags/diary" class="no-underline font-bold">【香江夜話】</a>
 從實驗室深夜的燈光，到維港迎面吹拂的海風，記錄我在港的見聞與生活碎影。
-* [**【煮茶隨筆】**](/tags/misc/)
+* <a href="/tags/misc" class="no-underline font-bold">【煮茶隨筆】</a>
 聊聊我對這個世界的觀察和思考，以及那些代碼之外的感動和感悟。
 
 
