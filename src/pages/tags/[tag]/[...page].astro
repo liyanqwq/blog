@@ -35,14 +35,14 @@ const { tag } = params;
 const { page, tagName } = Astro.props;
 ---
 
-<Layout title={`${getTranslations(locale, "Tag")} ${tagName} | ${SITE.title}`}>
+<Layout title={`${getTranslations(locale, "Tag")} ${getTranslations(locale, tagName)} | ${SITE.title}`}>
   <Header />
   <Main
-    pageTitle={[`${getTranslations(locale, "Tag")}`, `${tagName}`]}
+    pageTitle={[`${getTranslations(locale, "Tag")}`, `${getTranslations(locale, tagName)}`]}
     titleTransition={getTranslations(locale, tag)}
-    pageDesc={getTranslations(locale, "All the articles with the tag {tag}.", new Map([["tag", tagName]]))}
+    pageDesc={getTranslations(locale, "All the articles with the tag {tag}.", new Map([["tag", getTranslations(locale, tagName)]]))}
   >
-    <h1 slot="title" transition:name={tag}>{`${getTranslations(locale, "Tag")} ${tag}`}</h1>
+    <h1 slot="title" transition:name={tag}>{`${getTranslations(locale, "Tag")} ${getTranslations(locale, tagName)}`}</h1>
     <ul>
       {page.data.map(data => <Card {...data} />)}
     </ul>

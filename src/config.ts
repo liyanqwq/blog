@@ -2,7 +2,7 @@ export const SITE = {
   website: "https://blog.liyan.moe/", // replace this with your deployed domain
   author: "Li Yan",
   profile: "https://liyan.moe/",
-  desc: "數字内外，煮碼論道。 Brewing code within and beyond the digital great wall.",
+  desc: "於數字長河一隅，煮「碼」論道。 Brewing code beyond the digital stream.",
   title: "對岸茶館 Cyber Teahouse - Li Yan's Blog",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,

@@ -1,6 +1,8 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 import Socials from "./Socials.astro";
+import { getTranslations } from "@/i18n/utils";
+const locale = Astro.currentLocale;
 
 const currentYear = new Date().getFullYear();
 
@@ -24,9 +26,9 @@ const { noMarginTop = false, class: className, ...attrs } = Astro.props;
   >
     <Socials />
     <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row">
-      <span>Copyright &#169; 2019 - {currentYear} <a href="https://liyan.moe/" target="_blank" class="font-semibold">Li Yan</a></span>
+      <span>{getTranslations(locale, "Copyright")} &#169; 2019 - {currentYear} <a href="https://liyan.moe/" target="_blank" class="font-semibold">Li Yan</a></span>
       <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
-      <span>All rights reserved.</span>
+      <span>{getTranslations(locale, "All rights reserved.")}</span>
     </div>
   </div>
 </footer>

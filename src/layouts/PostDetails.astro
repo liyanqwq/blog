@@ -96,7 +96,7 @@ const nextPost =
       {title}
     </h1>
     <div class="my-2 flex items-center gap-2">
-      <Datetime {pubDatetime} {modDatetime} {timezone} size="lg" />
+      <Datetime {pubDatetime} {modDatetime} {timezone} size="lg" class:list={"mt-2"} />
       <span
         aria-hidden="true"
         class:list={[
@@ -108,7 +108,7 @@ const nextPost =
     </div>
     <article
       id="article"
-      class="app-prose mt-8 w-full max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"
+      class="app-prose text-justify mt-8 w-full max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"
     >
       <Content />
     </article>

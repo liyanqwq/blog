@@ -21,6 +21,12 @@ export const ui = {
         "All the tags used in posts.": "",
         "Tag": "標籤",
         "All the articles with the tag {tag}.": "所有使用標籤 {tag} 的文章。",
+        "Share this post on:": "分享文章至：",
+        "All rights reserved.": "保留所有權利.",
+        "Copyright": "版權所有",
+        "Misc": "煮茶隨筆",
+        "Cybersec": "攻防手記",
+        "Diary": "香江夜話",
     },
     "en": {
         "Home": "Home",
@@ -44,5 +50,11 @@ export const ui = {
         "All the tags used in posts.": "All the tags used in posts.",
         "Tag": "Tag",
         "All the articles with the tag {tag}.": "All the articles with the tag {tag}.",
+        "Share this post on:": "Share this post on:",
+        "All rights reserved.": "All rights reserved.",
+        "Copyright": "Copyright",
+        "Misc": "Misc",
+        "Cybersec": "CyberSec",
+        "Diary": "Diary",
     }
 }

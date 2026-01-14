@@ -1,6 +1,6 @@
 ---
 import IconHash from "@/assets/icons/IconHash.svg";
-
+import { getTranslations } from "@/i18n/utils";
 type Props = {
   tag: string;
   tagName: string;
@@ -8,6 +8,7 @@ type Props = {
 };
 
 const { tag, tagName, size = "lg" } = Astro.props;
+const locale = Astro.currentLocale;
 ---
 
 <li>
@@ -30,6 +31,6 @@ const { tag, tagName, size = "lg" } = Astro.props;
         { "size-4": size === "sm" },
       ]}
     />
-    {tagName}
+    {getTranslations(locale, tagName)}
   </a>
 </li>
