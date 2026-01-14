@@ -66,17 +66,17 @@ const structuredData = {
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Load Font -->
-
-    <Font cssVariable="--font-google-sans-code" preload={[{ subset: "latin", weight: 400, style: "normal" }]} />
-    <Font cssVariable="--font-lxgw-wenkai-tc" preload />
-
     <!-- General Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Load Font -->
+
+    <Font cssVariable="--font-google-sans-code" preload={[{ subset: "latin", weight: 400, style: "normal" }]} />
+    <Font cssVariable="--font-lxgw-wenkai-tc" preload />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content={title} />
