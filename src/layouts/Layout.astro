@@ -142,6 +142,7 @@ const structuredData = {
 
     <!-- Minimal inline script to prevent FOUC - sets theme immediately -->
     <script is:inline>
+      // @ts-ignore - IIFE is reachable in HTML context
       (function () {
         const initialColorScheme = ""; // "light" | "dark"
         const currentTheme = localStorage.getItem("theme");

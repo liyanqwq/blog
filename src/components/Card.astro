@@ -10,7 +10,7 @@ type Props = {
 
 const { variant: Heading = "h2", id, data, filePath } = Astro.props;
 
-const { title, description, ...props } = data;
+const { title, description, pubDatetime, modDatetime, timezone } = data;
 ---
 
 <li class="my-6">
@@ -28,6 +28,6 @@ const { title, description, ...props } = data;
       {title}
     </Heading>
   </a>
-  <Datetime {...props} />
+  <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} timezone={timezone} />
   <p>{description}</p>
 </li>

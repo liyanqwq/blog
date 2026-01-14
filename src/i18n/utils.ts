@@ -5,12 +5,12 @@ export const getTranslations = (locale: string = "zh-HK", key: string, args: Map
     const defaultTranslations = ui[SITE.lang];
     if (key in translations) {
         if (args.size > 0) {
-            return translations[key].replace(/{(\w+)}/g, (match, p1: string) => args.get(p1) || match);
+            return translations[key].replace(/{(\w+)}/g, (_match: string, p1: string) => args.get(p1) || _match);
         }
         return translations[key] as string;
     } else if (key in defaultTranslations) {
         if (args.size > 0) {
-            return defaultTranslations[key].replace(/{(\w+)}/g, (match, p1: string) => args.get(p1) || match);
+            return defaultTranslations[key].replace(/{(\w+)}/g, (_match: string, p1: string) => args.get(p1) || _match);
         }
         return defaultTranslations[key] as string;
     } else {
