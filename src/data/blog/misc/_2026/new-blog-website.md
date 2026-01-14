@@ -13,7 +13,7 @@ description:
 
 1987 年 9 月 20 日，中國第一封電子郵件從北京發出，內容只有一句話：
 
-> *"Across the Great Wall we can reach every corner in the world."*
+> Across the Great Wall we can reach every corner in the world.
 
 意思是：越過長城，走向世界。
 
