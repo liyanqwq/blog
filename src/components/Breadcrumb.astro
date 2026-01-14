@@ -6,10 +6,13 @@ const currentUrlPath = Astro.url.pathname.replace(/\/+$/, "");
 // eg: /tags/tailwindcss => ['tags', 'tailwindcss']
 const breadcrumbList = currentUrlPath.split("/").slice(1);
 
+const locale = Astro.currentLocale;
+import { getTranslations } from "@/i18n/utils";
+
 // if breadcrumb is Home > Posts > 1 <etc>
 // replace Posts with Posts (page number)
 if (breadcrumbList[0] === "posts") {
-  breadcrumbList.splice(0, 2, `Posts (page ${breadcrumbList[1] || 1})`);
+  breadcrumbList.splice(0, 2, getTranslations(locale, "Posts (page {number})", new Map([["number", breadcrumbList[1] || "1"]])));
 }
 
 // if breadcrumb is Home > Tags > [tag] > [page] <etc>
@@ -18,19 +21,19 @@ if (breadcrumbList[0] === "tags" && !isNaN(Number(breadcrumbList[2]))) {
   breadcrumbList.splice(
     1,
     3,
-    `${breadcrumbList[1]} ${Number(breadcrumbList[2]) === 1 ? "" : "(page " + breadcrumbList[2] + ")"}`
+    getTranslations(locale, "{tag} (page {number})", new Map([["tag", breadcrumbList[1]], ["number", breadcrumbList[2] || "1"]]))
   );
 }
 ---
 
-<nav class="app-layout mt-8 mb-4" aria-label="breadcrumb">
+<nav class="app-layout mt-8" aria-label="breadcrumb">
   <ul
     class="font-light [&>li]:inline [&>li:not(:last-child)>a]:hover:opacity-100"
   >
-    <li>
-      <a href="/" class="opacity-80">Home</a>
+    <!-- <li>
+      <a href="/" class="opacity-80">{getTranslations(locale, "HomeBreadcrumb")}</a>
       <span aria-hidden="true" class="opacity-80">&raquo;</span>
-    </li>
+    </li> -->
     {
       breadcrumbList.map((breadcrumb, index) =>
         index + 1 === breadcrumbList.length ? (
@@ -40,13 +43,13 @@ if (breadcrumbList[0] === "tags" && !isNaN(Number(breadcrumbList[2]))) {
               aria-current="page"
             >
               {/* make the last part lowercase in Home > Tags > some-tag */}
-              {decodeURIComponent(breadcrumb)}
+              {getTranslations(locale, decodeURIComponent(breadcrumb)[0].toUpperCase() + decodeURIComponent(breadcrumb).slice(1))}
             </span>
           </li>
         ) : (
           <li>
             <a href={`/${breadcrumb}/`} class="capitalize opacity-70">
-              {breadcrumb}
+              {getTranslations(locale, breadcrumb[0].toUpperCase() + breadcrumb.slice(1))}
             </a>
             <span aria-hidden="true">&raquo;</span>
           </li>

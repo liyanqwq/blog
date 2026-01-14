@@ -1,6 +1,6 @@
 ---
 title: Example Draft Post
-author: Sat Naing
+author: Li Yan
 pubDatetime: 2022-06-06T04:06:31Z
 slug: example-draft-post
 featured: false

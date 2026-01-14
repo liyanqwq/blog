@@ -56,7 +56,6 @@ const structuredData = {
 <html
   dir={SITE.dir}
   lang=`${locale ?? "en"}`
-  class={`${scrollSmooth && "scroll-smooth"}`}
   ondragstart="return false;"
 >
   <head>
@@ -171,7 +170,7 @@ const structuredData = {
       })();
     </script>
   </head>
-  <body class="w-dvw">
+  <body class={`${scrollSmooth && "scroll-smooth"} overflow-x-hidden h-dvh`}>
     <slot />
 
     <!-- Load full theme logic -->

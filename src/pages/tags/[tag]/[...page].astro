@@ -11,6 +11,10 @@ import getUniqueTags from "@/utils/getUniqueTags";
 import getPostsByTag from "@/utils/getPostsByTag";
 import { SITE } from "@/config";
 
+const locale = Astro.currentLocale;
+
+import { getTranslations } from "@/i18n/utils";
+
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const posts = await getCollection("blog");
   const tags = getUniqueTags(posts);
@@ -31,14 +35,14 @@ const { tag } = params;
 const { page, tagName } = Astro.props;
 ---
 
-<Layout title={`Tag: ${tagName} | ${SITE.title}`}>
+<Layout title={`${getTranslations(locale, "Tag")} ${tagName} | ${SITE.title}`}>
   <Header />
   <Main
-    pageTitle={[`Tag:`, `${tagName}`]}
-    titleTransition={tag}
-    pageDesc={`All the articles with the tag "${tagName}".`}
+    pageTitle={[`${getTranslations(locale, "Tag")}`, `${tagName}`]}
+    titleTransition={getTranslations(locale, tag)}
+    pageDesc={getTranslations(locale, "All the articles with the tag {tag}.", new Map([["tag", tagName]]))}
   >
-    <h1 slot="title" transition:name={tag}>{`Tag:${tag}`}</h1>
+    <h1 slot="title" transition:name={tag}>{`${getTranslations(locale, "Tag")} ${tag}`}</h1>
     <ul>
       {page.data.map(data => <Card {...data} />)}
     </ul>

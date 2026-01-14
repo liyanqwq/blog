@@ -8,11 +8,14 @@ import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
 import LinkButton from "./LinkButton.astro";
 import { SITE } from "@/config";
 import BlogLogo from "./BlogLogo.astro";
+import { getTranslations } from "@/i18n/utils";
 const { pathname } = Astro.url;
 
 // Remove trailing slash from current pathname if exists
 const currentPath =
   pathname.endsWith("/") && pathname !== "/" ? pathname.slice(0, -1) : pathname;
+
+const locale = Astro.currentLocale;
 
 const isActive = (path: string) => {
   const currentPathArray = currentPath.split("/").filter(p => p.trim());
@@ -42,19 +45,19 @@ const isActive = (path: string) => {
       "flex items-center justify-between sm:items-center",
     ]}
   >
-    <a
-      href="/"
-      class="absolute sm:py-0 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"
-    >
-      <BlogLogo className="h-12" />
-    </a>
     <nav
       id="nav-menu"
-      class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"
+      class="flex w-full flex-col items-center justify-center sm:mx-0 sm:flex-row sm:justify-between sm:py-0"
     >
+    <div class="flex items-center justify-between w-full sm:w-auto">
+      <a
+        href="/"
+      >
+        <BlogLogo className="h-12" />
+      </a>
       <button
         id="menu-btn"
-        class="focus-outline self-end p-2 sm:hidden"
+        class="focus-outline p-2 sm:hidden"
         aria-label="Open Menu"
         aria-expanded="false"
         aria-controls="menu-items"
@@ -62,6 +65,7 @@ const isActive = (path: string) => {
         <IconX id="close-icon" class="hidden" />
         <IconMenuDeep id="menu-icon" />
       </button>
+    </div>
       <ul
         id="menu-items"
         class:list={[
@@ -73,17 +77,17 @@ const isActive = (path: string) => {
       >
         <li class="col-span-2">
           <a href="/posts" class:list={{ "active-nav": isActive("/posts") }}>
-            Posts
+            {getTranslations(locale, "Posts")}
           </a>
         </li>
         <li class="col-span-2">
           <a href="/tags" class:list={{ "active-nav": isActive("/tags") }}>
-            Tags
+            {getTranslations(locale, "Tags")}
           </a>
         </li>
         <li class="col-span-2">
           <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
-            About
+            {getTranslations(locale, "About")}
           </a>
         </li>
         {
@@ -97,7 +101,7 @@ const isActive = (path: string) => {
                     "active-nav [&>svg]:stroke-accent": isActive("/archives"),
                   },
                 ]}
-                title="Archives"
+                title={getTranslations(locale, "Archives")}
                 aria-label="archives"
               >
                 <IconArchive class="hidden sm:inline-block" />
@@ -113,11 +117,11 @@ const isActive = (path: string) => {
               "focus-outline flex p-3 sm:p-1",
               { "[&>svg]:stroke-accent": isActive("/search") },
             ]}
-            title="Search"
+            title={getTranslations(locale, "Search")}
             aria-label="search"
           >
             <IconSearch />
-            <span class="sr-only">Search</span>
+            <span class="sr-only">{getTranslations(locale, "Search")}</span>
           </LinkButton>
         </li>
         {
@@ -126,7 +130,7 @@ const isActive = (path: string) => {
               <button
                 id="theme-btn"
                 class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent"
-                title="Toggles light & dark"
+                title={getTranslations(locale, "Toggles light & dark")}
                 aria-label="auto"
                 aria-live="polite"
               >
