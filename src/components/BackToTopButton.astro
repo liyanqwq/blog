@@ -22,7 +22,7 @@ import IconArrowNarrowUp from "@/assets/icons/IconArrowNarrowUp.svg";
   >
     <span
       id="progress-indicator"
-      class="absolute inset-0 -z-10 block size-14 scale-110 rounded-full bg-transparent md:hidden md:h-8 md:rounded-md"
+      class="absolute inset-0 z-10 block size-14 scale-110 rounded-full bg-transparent md:hidden md:h-8 md:rounded-md"
     ></span>
     <IconChevronLeft class="inline-block rotate-90 md:hidden" />
     <span class="sr-only text-sm group-hover:text-accent md:not-sr-only">
@@ -36,7 +36,7 @@ import IconArrowNarrowUp from "@/assets/icons/IconArrowNarrowUp.svg";
   /** Scrolls the document to the top when
    * the "Back to Top" button is clicked. */
   function backToTop() {
-    const rootElement = document.documentElement;
+    const rootElement = document.body;
     const btnContainer = document.querySelector("#btt-btn-container");
     const backToTopBtn = document.querySelector("[data-button='back-to-top']");
     const progressIndicator = document.querySelector("#progress-indicator");
@@ -46,8 +46,7 @@ import IconArrowNarrowUp from "@/assets/icons/IconArrowNarrowUp.svg";
 
     // Attach click event handler for back-to-top button
     backToTopBtn.addEventListener("click", () => {
-      document.body.scrollTop = 0; // For Safari
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      document.body.scrollTop = 0;
     });
 
     // Handle button visibility according to scroll position
@@ -74,7 +73,7 @@ import IconArrowNarrowUp from "@/assets/icons/IconArrowNarrowUp.svg";
     }
 
     let ticking = false;
-    document.addEventListener("scroll", () => {
+    rootElement.addEventListener("scroll", () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           handleScroll();

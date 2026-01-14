@@ -28,17 +28,17 @@ const locale = Astro.currentLocale;
 ---
 
 <header
-  class="sticky top-0 z-50 bg-background/50 backdrop-blur-lg select-none hover:bg-background"
+  class="sticky w-full top-0 z-50 bg-background/50 backdrop-blur-lg select-none hover:bg-background"
 >
   <button
-    id="menu-btn"
-    class="absolute top-3 right-3 p-3 rounded-full bg-background/40 border border-foreground/10 shadow-md focus-outline self-end sm:hidden sm:top-auto"
+    id="index-menu-btn"
+    class="absolute top-3 right-3 py-3 self-end sm:hidden sm:top-auto"
     aria-label="Open Menu"
     aria-expanded="false"
-    aria-controls="menu-items"
+    aria-controls="index-menu-items"
   >
-    <IconX id="close-icon" class="hidden" />
-    <IconMenuDeep id="menu-icon" />
+    <IconX id="index-close-icon" class="hidden" />
+    <IconMenuDeep id="index-menu-icon" />
   </button>
   <section
     id="hero"
@@ -101,7 +101,7 @@ const locale = Astro.currentLocale;
         class="flex w-full flex-col items-center sm:flex-row sm:justify-center sm:space-x-4 sm:py-0"
       >
         <ul
-          id="menu-items"
+          id="index-menu-items"
           class:list={[
             "mt-4 grid w-44 grid-cols-2 place-content-center gap-2",
             "[&>li>a]:block [&>li>a]:px-4 [&>li>a]:py-3 [&>li>a]:text-center [&>li>a]:font-medium [&>li>a]:hover:text-accent sm:[&>li>a]:px-2 sm:[&>li>a]:py-1",
@@ -170,11 +170,11 @@ const locale = Astro.currentLocale;
 </header>
 
 <script>
-  function toggleNav() {
-    const menuBtn = document.querySelector("#menu-btn");
-    const menuItems = document.querySelector("#menu-items");
-    const menuIcon = document.querySelector("#menu-icon");
-    const closeIcon = document.querySelector("#close-icon");
+  function toggleIndexNav() {
+    const menuBtn = document.querySelector("#index-menu-btn");
+    const menuItems = document.querySelector("#index-menu-items");
+    const menuIcon = document.querySelector("#index-menu-icon");
+    const closeIcon = document.querySelector("#index-close-icon");
 
     if (!menuBtn || !menuItems || !menuIcon || !closeIcon) return;
 
@@ -190,8 +190,8 @@ const locale = Astro.currentLocale;
     });
   }
 
-  toggleNav();
+  toggleIndexNav();
 
   // Runs on view transitions navigation
-  document.addEventListener("astro:after-swap", toggleNav);
+  document.addEventListener("astro:after-swap", toggleIndexNav);
 </script>

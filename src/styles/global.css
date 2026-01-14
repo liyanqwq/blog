@@ -40,11 +40,11 @@ html[data-theme="dark"] {
     scrollbar-width: auto;
     scrollbar-color: var(--color-muted) transparent;
   }
-  html {
+  /* html {
     @apply overflow-y-scroll scroll-smooth;
-  }
+  } */
   body {
-    @apply flex min-h-svh flex-col bg-background font-app text-foreground selection:bg-accent/75 selection:text-background;
+    @apply flex flex-col bg-background font-app text-foreground selection:bg-accent/75 selection:text-background;
   }
   a,
   button {

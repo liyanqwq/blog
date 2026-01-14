@@ -18,7 +18,6 @@ type Props = {
   canonicalURL?: string;
   pubDatetime?: Date;
   modDatetime?: Date | null;
-  scrollSmooth?: boolean;
 };
 
 const {
@@ -30,7 +29,6 @@ const {
   canonicalURL = new URL(Astro.url.pathname, Astro.url),
   pubDatetime,
   modDatetime,
-  scrollSmooth = false,
 } = Astro.props;
 
 const socialImageURL = new URL(ogImage, Astro.url);
@@ -60,7 +58,7 @@ const structuredData = {
 >
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="icon" type="image/svg+xml" href="/favicon.webp" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
@@ -171,7 +169,7 @@ const structuredData = {
       })();
     </script>
   </head>
-  <body class={`${scrollSmooth && "scroll-smooth"} overflow-x-hidden h-dvh`}>
+  <body class={`overflow-x-hidden max-h-dvh h-screen overflow-y-auto`}>
     <slot />
 
     <!-- Load full theme logic -->
