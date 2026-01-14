@@ -4,7 +4,7 @@ export const SITE = {
   profile: "https://liyan.moe/",
   desc: "於數字長河一隅，煮「碼」論道。 Brewing code beyond the digital stream.",
   title: "對岸茶館 Cyber Teahouse - Li Yan's Blog",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "dnit-og.png",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 4,
