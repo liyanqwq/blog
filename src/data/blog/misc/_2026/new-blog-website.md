@@ -2,7 +2,7 @@
 title: 於數字長河彼岸，煮“碼”論道：寫在個人博客“對岸茶館”創建初
 author: Li Yan
 pubDatetime: 2026-01-15T20:00:00Z
-slug: example-draft-post
+slug: new-blog-website
 featured: true
 draft: false
 tags:
